@@ -67,24 +67,26 @@ public class MinHeap {
     }
 
     private void minHeapifyDown(int pos){
-        int movedChild = heap[pos];
-        int selectedChildIdx;
+
+        int smallestIdx = pos;
         // int leftChild = 2*pos+1 ;
         // int rightChild = 2*pos+2;
-        while(leftChild(pos) < heapSize){
-            if(rightChild(pos) < heapSize)
-                selectedChildIdx = heap[leftChild(pos)]<heap[rightChild(pos)]? leftChild(pos): rightChild(pos);
-            else selectedChildIdx = leftChild(pos);
+        while(pos < heapSize/2){
+            if(leftChild(pos) < heapSize && heap[leftChild(pos)]<heap[smallestIdx])
+                smallestIdx = leftChild(pos);
+            if(rightChild(pos) < heapSize && heap[rightChild(pos)]<heap[smallestIdx])
+                smallestIdx = rightChild(pos);
                 
-            if(movedChild > heap[selectedChildIdx])
-                {heap[pos] = heap[selectedChildIdx];
-                heap[selectedChildIdx] = -1;}
+            if(heap[pos] > heap[smallestIdx]){
+                int temp = heap[pos];
+                heap[pos] = heap[smallestIdx];
+                heap[smallestIdx] = temp;
+            }
             else 
                 break;
             
-            pos = selectedChildIdx;
+            pos = smallestIdx;
         }
-        heap[pos] = movedChild;
     }
 
 
