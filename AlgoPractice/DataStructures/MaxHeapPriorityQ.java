@@ -21,7 +21,7 @@ public class MaxHeapPriorityQ {
 
         //show all elements
         System.out.println("Max heap as PriorityQueue");
-        Iterator iter  = pQueueHeap.iterator();
+        Iterator<Integer> iter  = pQueueHeap.iterator();
         while (iter.hasNext()) {
             System.out.print(iter.next()+" ");            
         }
@@ -33,7 +33,7 @@ public class MaxHeapPriorityQ {
 
         //showing again
         System.out.println("Again, Max heap as PriorityQueue");
-        Iterator iter1  = pQueueHeap.iterator();
+        Iterator<Integer> iter1  = pQueueHeap.iterator();
         while (iter1.hasNext()) {
             System.out.print(iter1.next()+" ");            
         }
