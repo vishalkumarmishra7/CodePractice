@@ -17,6 +17,7 @@ public class HeapSort {
             heapifyDown(nums, nums.length, i);
         }
 
+        //get max item
         for(int i = nums.length - 1; i > 0; i--){
             int temp = nums[0];
             nums[0] = nums[i];
